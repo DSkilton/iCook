@@ -1,0 +1,457 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!--<meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=9" />-->
+
+<!-- Internet Explorer Compatibility-->
+<!--Not needed for Hybrid Mobile Apps so can be deleted-->
+<!--[if IE 7]><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><![endif]-->
+<!--[if IE]>
+
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <style type="text/css">
+        .clear {
+            zoom: 1;
+            display: none;
+        }
+    </style>
+<![endif]-->
+
+<title>MobileAppDev - Starter App Template</title>
+
+<!-- JQM Themeroller Stylesheet 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />-->
+<link rel="stylesheet" type="text/css" href="/styles/themes/swag.css" />
+<link rel="stylesheet" href="/jquery.mobile-1.4.0.css">
+
+<!--jQuery and Mobile Core Minimized-->
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.mobile-1.4.0.min.js"></script>
+
+<!-- To Fix Placeholder Issue in Internet Explorer-->
+<!--http://jamesallardice.github.io/Placeholders.js/-->
+<script src="controllers/class.Placeholders.min.js"></script>
+
+<!--Call Controller-->
+<script src="/controllers/class.controller.registerUser.js"></script>
+<script src="/controllers/class.controller.login.js"></script>
+
+<!--<script src="controllers/class.getDashBoardData.js"></script>-->
+<script src="/controllers/class.controller.logout.js"></script>
+
+<script src="config/init.js"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script> 
+
+<link rel="stylesheet" type="text/css" href="/styles/jquery-mobile-fluid960.css">
+<!--custom CSS must come last to overide CSS defined in the jquery mobile functions-->
+<link rel="stylesheet" type="text/css" href="/styles/custom_overides.css" />
+
+<script>
+$(document).ready(function () {
+//Hide Elements
+var $content = $("#registerUser").hide();
+var $content = $("#about-app").hide();
+   
+	//Make Elements visible on click     
+	$(".toggle").on("click", function (e) {
+			$(this).toggleClass("expanded");
+			$(this).next().slideToggle();
+
+});
+});
+
+</script>
+
+</head>
+
+<body>
+<div data-role="page" id="home" class="type-register">
+
+<!--put formContainer here-->
+    <div id="formContainer">   
+
+<div id="logo"><img class="icon-logo" width="342" src="images/logo.png" alt="logo"> </div>
+      <div id="formContent">
+        <div class="header">
+          <h2>iCook</h2>
+        </div>
+        <form id='loginForm'>
+          <div class="field">
+            <input name="email" id="email" type="text" placeholder="Your Email Address" />
+          </div>
+          <div class="field">
+            <input name="PassWord" id="PassWord" type="password" placeholder="Your Password" />
+          </div>
+          <div id="login-btn">
+            <button>Login</button>
+          </div>
+          <span id="msg"> </span>
+        </form>
+        <div class="toggle"><a href="#">
+        <span class="image"></span><span class="text">Register Form</span></a></div>
+        
+        <form class="bob" id='registerUser'>
+          <label for="firstN"></label>
+          <div class="field">
+            <input name="firstN" id="firstN" type="text" placeholder="Your First Name" />
+          </div>
+          <label for="lastN"></label>
+          <div class="field">
+            <input name="lastN" id="lastN" type="text" placeholder="Your Last Name" />
+          </div>
+          <label for="email"></label>
+          <div class="field">
+            <input name="email" id="email" type="text" placeholder="example@yahoo.com" />
+          </div>
+          <label for="PassWord"></label>
+          <div class="field">
+            <input name="PassWord" id="PassWord" type="text" placeholder="password" />
+          </div>
+          <button id="reg">Register Account</button>
+          <span class="msg"></span>
+        </form>
+        <div class="toggle"><a href="#">
+        <span class="info"></span><span class="text">About</span></a></div>
+        <div id="about-app">
+          <h2 class="title">About the app</h2>
+          <hr class="line">
+          <p> My Journey is an app that can be used for business trips, holidays, backpackers and more any time you need to keep lots of important travel documentation in one place. In terms of timings, locations and any other information that you will need quick access to when your travelling.
+            
+            Register for a free account today.</p>
+          <h2 class="title">How to use the app</h2>
+          <hr class="line">
+          <p> In order to use the 'My Journey' application you will need to register an account. It's all free just type your details using the register form make sure you haven't created an account for our app before as you will be unable to register with email address which has already been used.</p>
+        </div>
+      </div>
+
+    </div><!--Close formContainer-->
+</div><!-- /close page -->
+
+
+<!--PAGE 2 - DASHBOARD -->
+
+<div data-role="page" id="dashboard" data-transition="slide"> 
+  
+  <!--Account Control Panel --> 
+  <!--Note about panel element - had to change from <panel> to <div> to ensure compatibility with IE8 and IE7. May need to switch back to <panel> for app production-->
+  <div data-role="panel" id="accountPanel" data-position="left" data-display="overlay">
+    <header data-role="header" data-theme="a" class="center">Account Settings</header>
+    <ul data-role="listview" data-inset="true" data-theme="a" data-icon="star" data-filter-placeholder="Search..." class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+      <li><a href="#" data-role="none" >Change Password</a></li>
+
+    </ul>
+  </div>
+  <!-- /panel --> 
+  
+  <a href="#accountPanel" data-role="none" data-enhance="false" class="ui-btn-left"><span class="ui-icon-settings"></span></a> 
+  <!--place your addition header - sections and footer here--> 
+  <!--remember to put in a h1 identifier so you know you have reached the dashboard screen-->
+  <section id="header-dashboard" data-role="content" data-theme="a" class="center custom-border page-identifier">
+    <h4>Dashboard</h4>
+  </section>
+  <div id="wrapper"> 
+    
+    <!--Main Content in Center of Screen-->
+    <section data-role="content" class="constrain contentBG"> 
+      
+      <!--960 Grid Root [responsive web design plugin]-->
+      <div class="container_16" data-theme="a">
+        <div class="grid_8" data-theme="a">
+          <div class="gridMarginsLeft"> 
+            <!--Close Left Column 1 --> 
+            
+            <!--Left Column Group 2-->
+            <div data-role="listview" data-inset="true" data-theme="a" data-icon="false" data-filter-placeholder="Search..." class="jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
+              <div id="logo"> <img class="arrow" src="images/arrow.png"> <img class="icon" width="30" src="images/compose.png"> </div>
+              <div class="light-grey">
+                <div class="header">
+                  <h2>Search</h2>
+                </div>
+                <table data-role="table" id="sectors">
+                </table>
+                <div class="trip-add">
+                  <div class="toggle"><span class="image"></span><span class="text">Add Sector</span> </div>
+                  <div id="sector-form"> Coming Soon </div>
+                </div>
+              </div>
+            </div>
+            <!--Close Left Column 2 --> 
+          </div>
+          <!--Close grid_8--> 
+        </div>
+        <!--Close container_16--> 
+        
+        <!--Right Column Group 1-->
+        <div class="grid_8" data-theme="a">
+          <div class="gridMarginsRight"> 
+            <!--Right Column Group 1-->
+            <div data-role="listview" data-inset="true" data-theme="a" data-icon="star" class="mylist jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
+              <div id="logo"> <img class="arrow" src="images/arrow.png"> <img class="icon" width="30" src="images/list-white.png"> </div>
+              <div class="light-grey">
+                <div class="header">
+                  <h2>Popular Recipes</h2>
+                </div>
+                <table data-role="table" id="trip" style="background:#bdc3c7; text-shadow:none; color:black;">
+                </table>
+                <div class="toggle"> <span class="image"></span><span class="text">Edit Note</span></div>
+                <div id="sector-form">
+                  <form id="deleteForm">
+                    <select name="trip" id="trip" onchange="report(this.value)">
+                    </select>
+                    <label for="tripTitle" class="ui-input-text"></label>
+                    <div class="field">
+                      <input name="tripTitle" id="tripTitle" type="text" placeholder="Trip Title">
+                    </div>
+                    Coming Soon <span class="msg"></span>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--Close Right Column 1 --> 
+          </div>
+        </div>
+        <!--Close grid_8--> 
+        
+        <!--Spare Group--> 
+        
+      </div>
+      <!--Close container_16-->
+      
+      <div class="container_16" data-theme="a">
+        <div class="grid_8" data-theme="a">
+          <div class="gridMarginsLeft"> 
+            <!--Close Left Column 1 --> 
+            
+            <!--Left Column Group 2-->
+            <div data-role="listview" data-inset="true" data-theme="a" data-icon="false" data-filter-placeholder="Search..." class="jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
+              <div id="logo"> <img class="arrow" src="images/arrow.png"> <img class="icon" width="30" src="/images/Recipes.png"> </div>
+              <div class="light-grey">
+                <div class="header">
+                  <h2>My Recipes</h2>
+                </div>                
+        			<ul data-role="listview" data-inset="true" data-theme="a" class="">
+          				<li data-role="list-divider" data-theme="a"></span><span class="coloumnHeaders">Select Option Below</span></li>
+          				<li data-icon="grid"><a href="#viewAllRecipes" onclick="changeAppPage('viewAllRecipes')">View All Recipes</a></li>
+          				<li data-icon="plus"><a href="#addRecipe" onclick="changeAppPage('addRecipes')">Add New Recipes</a></li>
+          
+			        </ul>
+             
+             
+             <!--TAKE OUT-->
+             
+              <!--  <ul id="profile">
+                  <li id="username" class="name">
+                    <p class="profile">Name:</p>
+                  </li>
+                  <li id="registeredemail" class="name">
+                    <p class="profile">Email:</p>
+                  </li>
+                </ul> -->
+                
+                
+                
+              </div>
+            </div>
+            <!--Close Left Column 2 --> 
+          </div>
+          <!--Close grid_8--> 
+        </div>
+        <!--Close container_16--> 
+        
+        <!--Right Column Group 1-->
+        <div class="grid_8" data-theme="a">
+          <div class="gridMarginsRight"> 
+            <!--Right Column Group 1-->
+            <div data-role="listview" data-inset="true" data-theme="a" data-icon="star" class="mylist jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
+              <div id="logo"> <img class="arrow" src="images/arrow.png"> <img class="icon" width="30" src="images/favourites.png"> </div>
+              <div class="light-grey">
+                <div class="header">
+                  <h2>Favourites</h2>
+                </div>
+                <div class="otherdeatils"> <a href="#map-page">
+                  <div class="geoLocation_btn"> Current Location Map </div>
+                  </a> </div>
+              </div>
+            </div>
+            <!--Close Right Column 1 --> 
+          </div>
+        </div>
+        <!--Close grid_8--> 
+        
+        <!--Spare Group--> 
+        
+      </div>
+      <!--Close container_16--> 
+      
+    </section>
+    <!--Close Section-->
+    
+    <footer data-tap-toggle="false" data-role="footer" data-position="fixed" class="footer" data-theme="a">
+      <section class="footer-link" id="logout"><a class="red" href="#home"><img width="30" align="middle" src="images/logout.png">
+        <p>Logout</p>
+        </a></section>
+      <section class="footer-link" id="dash"><a class="red" href="#dashboard"><img width="30" src="images/dash.png">
+        <p>Dashboard
+        
+        <p> 
+        </a></section>
+      <section class="footer-link geoLocation_btn" id="items"><a  href="#map-page"><img width="30" src="images/list.png">
+        <p>Current Location</p>
+        </a></section>
+      <section class="footer-link" id="compose"><a class="red" href="#addnote"><img width="30" src="images/compose.png">
+        <p>Compose</p>
+        </a></section>
+    </footer>
+  </div>
+</div>
+<!-- /close page --> 
+
+<!--PAGE 3 - ADDNOTE -->
+
+<div data-role="page" id="addnote">
+  <div id="formContainer">
+    <div id="logo"> <img class="arrow" src="images/arrow.png"> <img class="icon" width="30" src="images/compose-white.png"> </div>
+    <div id="formContent">
+      <div class="header">
+        <h2>Compose Note</h2>
+      </div>
+      <form id='composeForm'>
+        <div class="field titlefield">
+          <input name="tripTitle" id="tripTitle" type="text" placeholder="Project Title" />
+        </div>
+        <div id="message" class="field">
+          <div>
+            <textarea style="
+    height: 100%;" name="tripDesc" id="tripDesc" type="text" placeholder="Enter you task/message/note" />
+            </textarea>
+          </div>
+        </div>
+        <div id="save-btn">
+          <button>Save</button>
+        </div>
+        <span id="commsg"> </span>
+      </form>
+    </div>
+  </div>
+  <footer data-tap-toggle="false" data-role="footer" data-position="fixed" class="footer" data-theme="a">
+    <section class="footer-link" id="logout"><img width="30" align="middle" src="images/logout.png">
+      <p>Logout</p>
+    </section>
+    <section class="footer-link" id="dash"><a class="red" href="#dashboard" onclick="getTrip()"><img width="30" src="images/dash.png">
+      <p>Dashboard
+      
+      <p> 
+      </a></section>
+    <section class="footer-link" id="items"><a href="#map-page"><img width="30" src="images/list.png">
+      <p>Current Location</p>
+      </a></section>
+    <section class="footer-link" id="compose"><img width="30" src="images/compose.png">
+      <p>Compose</p>
+    </section>
+  </footer>
+</div>
+</div>
+
+<!--PAGE 4 - map-page -->
+<div data-role="page" id="map-page" data-add-back-btn="true"> 
+  
+  
+  <div id="map" data-role="content"> </div>
+  <footer data-tap-toggle="false" data-role="footer" data-position="fixed" class="footer" data-theme="a">
+    <section class="footer-link" id="logout"><a class="red" href="#addnote"><img width="30" align="middle" src="images/logout.png">
+      <p>Logout</p>
+      </a></section>
+    <section class="footer-link" id="dash"><a class="red" href="#dashboard"><img width="30" src="images/dash.png">
+      <p>Dashboard
+      
+      <p> 
+      </a></section>
+    <section class="footer-link" id="items"><img width="30" src="images/list.png">
+      <p>Notes</p>
+    </section>
+    <section class="footer-link" id="compose"><a class="red" href="#addnote"><img width="30" src="images/compose.png">
+      <p>Compose</p>
+      </a></section>
+  </footer>
+
+
+</div>
+
+
+
+
+<!-- /close page --> 
+
+<!--PAGE 5 - PASSPORT -->
+<div data-role="page" id="passport">
+  <section data-role="content" class="constrain contentBG"> 
+    
+    <!--960 Grid Root [responsive web design plugin]-->
+    <div class="container_16" data-theme="a">
+      <div class="grid_8" data-theme="a">
+        <div class="gridMarginsLeft">
+          <div class="light-grey">
+            <div class="header">
+              <h2 class="ui-li-heading">Passport Form</h2>
+            </div>
+            <form class="bob" id='passportform'>
+              <label for="firstN"></label>
+              <div class="field">
+                <input name="firstN" id="firstN" type="text" placeholder="Full Name" />
+              </div>
+              <label for="lastN"></label>
+              <div class="field">
+                <input name="passnum" id="passnum" type="text" placeholder="Passport Number" />
+              </div>
+              <label for="passnum"></label>
+              <div class="field">
+                <input name="bog" id="bod" type="text" placeholder="Date of birth" />
+              </div>
+              <label for="dob"></label>
+              <div class="field">
+                <input name="exdate" id="exdate" type="text" placeholder="Exspiry Date" />
+              </div>
+              <div class="upload">
+                <label for="userFile">Upload your boarding pass (not passport): </label>
+                <input type="file" size="40" name="userFile" id="userFile">
+                <button>Save Details</button>
+                <span></span> </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="grid_8" data-theme="a">
+        <div class="gridMarginsLeft">
+          <div class="light-grey">
+            <div class="header">
+              <h2 class="ui-li-heading">Passport Details/Boarding Pass</h2>
+            </div>
+            <div class="placeholder" > <img src="images/5.png"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer data-tap-toggle="false" data-role="footer" data-position="fixed" class="footer" data-theme="a">
+      <section class="footer-link" id="logout"><a class="red" href="#home"><img width="30" align="middle" src="images/logout.png">
+        <p>Logout</p>
+        </a></section>
+      <section class="footer-link" id="dash"><a class="red" href="#dashboard"><img width="30" src="images/dash.png">
+        <p>Dashboard
+        
+        <p> 
+        </a></section>
+      <section class="footer-link" id="items"><img width="30" src="images/list.png">
+        <p>Notes</p>
+      </section>
+      <section class="footer-link" id="compose"><a class="red" href="#addnote"><img width="30" src="images/compose.png">
+        <p>Compose</p>
+        </a></section>
+    </footer>
+  </section>
+</div>
+
+
+</body>
+</html>

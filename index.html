@@ -36,6 +36,7 @@
 
 <!--Call Controller-->
 <script src="/controllers/class.controller.registerUser.js"></script>
+<script src="/controllers/class.controller.addrecipe.js"></script>
 <script src="/controllers/class.controller.login.js"></script>
 
 <!--<script src="controllers/class.getDashBoardData.js"></script>-->
@@ -53,6 +54,8 @@ $(document).ready(function () {
 //Hide Elements
 var $content = $("#registerUser").hide();
 var $content = $("#about-app").hide();
+var $content = $("#addRecipe").hide();
+var $content = $("viewall").hide();
    
 	//Make Elements visible on click     
 	$(".toggle").on("click", function (e) {
@@ -164,7 +167,7 @@ var $content = $("#about-app").hide();
             
             <!--Left Column Group 2-->
             <div data-role="listview" data-inset="true" data-theme="a" data-icon="false" data-filter-placeholder="Search..." class="jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
-              <div id="logo"> <img class="arrow" src="images/arrow.png"> <img class="icon" width="30" src="images/compose.png"> </div>
+              <div id="logo">  <img class="icon" width="30" src="images/compose.png"> </div>
               <div class="light-grey">
                 <div class="header">
                   <h2>Search</h2>
@@ -172,8 +175,14 @@ var $content = $("#about-app").hide();
                 <table data-role="table" id="sectors">
                 </table>
                 <div class="trip-add">
-                  <div class="toggle"><span class="image"></span><span class="text">Add Sector</span> </div>
-                  <div id="sector-form"> Coming Soon </div>
+                  <div class="wrap">
+					   <div class="search">
+						  <input type="text" class="searchTerm" placeholder="What to eat?">
+						  <button type="submit" class="searchButton">
+							 	
+						 </button>
+					   </div>
+					</div>
                 </div>
               </div>
             </div>
@@ -188,7 +197,7 @@ var $content = $("#about-app").hide();
           <div class="gridMarginsRight"> 
             <!--Right Column Group 1-->
             <div data-role="listview" data-inset="true" data-theme="a" data-icon="star" class="mylist jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
-              <div id="logo"> <img class="arrow" src="images/arrow.png"> <img class="icon" width="30" src="images/list-white.png"> </div>
+              <div id="logo">  <img class="icon" width="30" src="images/list-white.png"> </div>
               <div class="light-grey">
                 <div class="header">
                   <h2>Popular Recipes</h2>
@@ -226,32 +235,41 @@ var $content = $("#about-app").hide();
             
             <!--Left Column Group 2-->
             <div data-role="listview" data-inset="true" data-theme="a" data-icon="false" data-filter-placeholder="Search..." class="jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
-              <div id="logo"> <img class="arrow" src="images/arrow.png"> <img class="icon" width="30" src="/images/Recipes.png"> </div>
+              <div id="logo">  <img class="icon" width="30" src="/images/Recipes.png"> </div>
               <div class="light-grey">
                 <div class="header">
                   <h2>My Recipes</h2>
                 </div>                
-        			<ul data-role="listview" data-inset="true" data-theme="a" class="">
-          				<li data-role="list-divider" data-theme="a"></span><span class="coloumnHeaders">Select Option Below</span></li>
-          				<li data-icon="grid"><a href="#viewAllRecipes" onclick="changeAppPage('viewAllRecipes')">View All Recipes</a></li>
-          				<li data-icon="plus"><a href="#addRecipe" onclick="changeAppPage('addRecipes')">Add New Recipes</a></li>
-          
-			        </ul>
-             
-             
-             <!--TAKE OUT-->
-             
-              <!--  <ul id="profile">
-                  <li id="username" class="name">
-                    <p class="profile">Name:</p>
-                  </li>
-                  <li id="registeredemail" class="name">
-                    <p class="profile">Email:</p>
-                  </li>
-                </ul> -->
-                
-                
-                
+        			<div class="toggle"><a href="#">
+						<span class="image"></span><span class="text">Add New Recipe</span></a></div>
+						
+						<form class="bob" id="addRecipe">
+						  <label for="recipeN"></label>
+						  <div class="field">
+							<input name="recipeN" id="recipeN" type="text" placeholder="Recipe Name" />
+						  </div>
+						  <label for="mainIngredient"></label>
+						  <div class="field">
+							<input name="mainIngredient" id="mainIngredient" type="text" placeholder="Veggies, Chicken, Beef etc" />
+						  </div>
+						  <label for="ingredients"></label>
+						  <div class="field">
+							<input name="ingredients" id="ingredients" type="text" placeholder="Other ingredients" />
+						  </div>
+						  <label for="method"></label>
+						  <div class="field">
+							<input name="method" id="method" type="text" placeholder="Method" />
+						  </div>
+						  <button id="add">Add Recipe</button>
+						  <span class="msg"></span>
+						</form>
+						
+						
+						
+						<div class="toggle"><a href="#">
+						<span class="info"></span><span class="text">View Recipe</span></a></div>
+
+				             
               </div>
             </div>
             <!--Close Left Column 2 --> 
@@ -265,7 +283,7 @@ var $content = $("#about-app").hide();
           <div class="gridMarginsRight"> 
             <!--Right Column Group 1-->
             <div data-role="listview" data-inset="true" data-theme="a" data-icon="star" class="mylist jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
-              <div id="logo"> <img class="arrow" src="images/arrow.png"> <img class="icon" width="30" src="images/favourites.png"> </div>
+              <div id="logo">  <img class="icon" width="30" src="images/favourites.png"> </div>
               <div class="light-grey">
                 <div class="header">
                   <h2>Favourites</h2>
@@ -312,7 +330,7 @@ var $content = $("#about-app").hide();
 
 <div data-role="page" id="addnote">
   <div id="formContainer">
-    <div id="logo"> <img class="arrow" src="images/arrow.png"> <img class="icon" width="30" src="images/compose-white.png"> </div>
+    <div id="logo">  <img class="icon" width="30" src="images/compose-white.png"> </div>
     <div id="formContent">
       <div class="header">
         <h2>Compose Note</h2>

@@ -38,6 +38,7 @@
 <script src="/controllers/class.controller.registerUser.js"></script>
 <script src="/controllers/class.controller.addrecipe.js"></script>
 <script src="/controllers/class.controller.login.js"></script>
+<script src="/controllers/class.getDashBoardData.js"></script>
 
 <!--<script src="controllers/class.getDashBoardData.js"></script>-->
 <script src="/controllers/class.controller.logout.js"></script>
@@ -47,15 +48,13 @@
 
 <link rel="stylesheet" type="text/css" href="/styles/jquery-mobile-fluid960.css">
 <!--custom CSS must come last to overide CSS defined in the jquery mobile functions-->
-<link rel="stylesheet" type="text/css" href="/styles/custom_overides.css" />
+<link rel="stylesheet" type="text/css" href="styles/custom_overides.css"/>
 
 <script>
 $(document).ready(function () {
 //Hide Elements
 var $content = $("#registerUser").hide();
 var $content = $("#about-app").hide();
-var $content = $("#addRecipe").hide();
-var $content = $("viewall").hide();
    
 	//Make Elements visible on click     
 	$(".toggle").on("click", function (e) {
@@ -75,10 +74,10 @@ var $content = $("viewall").hide();
 <!--put formContainer here-->
     <div id="formContainer">   
 
-<div id="logo"><img class="icon-logo" width="342" src="images/logo.png" alt="logo"> </div>
+
       <div id="formContent">
         <div class="header">
-          <h2>iCook</h2>
+          <div id="logo"><img class="icon-logo" width="342" src="images/logo.png" alt="logo"> </div>
         </div>
         <form id='loginForm'>
           <div class="field">
@@ -152,7 +151,8 @@ var $content = $("viewall").hide();
   <!--place your addition header - sections and footer here--> 
   <!--remember to put in a h1 identifier so you know you have reached the dashboard screen-->
   <section id="header-dashboard" data-role="content" data-theme="a" class="center custom-border page-identifier">
-    <h4>Dashboard</h4>
+    <h1>iCook Dashboard</h1>
+    <h4>Control the App here</h4>
   </section>
   <div id="wrapper"> 
     
@@ -167,7 +167,7 @@ var $content = $("viewall").hide();
             
             <!--Left Column Group 2-->
             <div data-role="listview" data-inset="true" data-theme="a" data-icon="false" data-filter-placeholder="Search..." class="jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
-              <div id="logo">  <img class="icon" width="30" src="images/compose.png"> </div>
+              	<div id="logo">  <img class="icon" width="30" src="images/compose.png"> </div>
               <div class="light-grey">
                 <div class="header">
                   <h2>Search</h2>
@@ -178,9 +178,7 @@ var $content = $("viewall").hide();
                   <div class="wrap">
 					   <div class="search">
 						  <input type="text" class="searchTerm" placeholder="What to eat?">
-						  <button type="submit" class="searchButton">
-							 	
-						 </button>
+						  <button type="submit" class="searchButton"></button>
 					   </div>
 					</div>
                 </div>
@@ -240,36 +238,11 @@ var $content = $("viewall").hide();
                 <div class="header">
                   <h2>My Recipes</h2>
                 </div>                
-        			<div class="toggle"><a href="#">
-						<span class="image"></span><span class="text">Add New Recipe</span></a></div>
-						
-						<form class="bob" id="addRecipe">
-						  <label for="recipeN"></label>
-						  <div class="field">
-							<input name="recipeN" id="recipeN" type="text" placeholder="Recipe Name" />
-						  </div>
-						  <label for="mainIngredient"></label>
-						  <div class="field">
-							<input name="mainIngredient" id="mainIngredient" type="text" placeholder="Veggies, Chicken, Beef etc" />
-						  </div>
-						  <label for="ingredients"></label>
-						  <div class="field">
-							<input name="ingredients" id="ingredients" type="text" placeholder="Other ingredients" />
-						  </div>
-						  <label for="method"></label>
-						  <div class="field">
-							<input name="method" id="method" type="text" placeholder="Method" />
-						  </div>
-						  <button id="add">Add Recipe</button>
-						  <span class="msg"></span>
-						</form>
-						
-						
-						
-						<div class="toggle"><a href="#">
-						<span class="info"></span><span class="text">View Recipe</span></a></div>
-
-				             
+				   <ul data-role="listview" data-inset="true" data-theme="a" class="">
+         			 <li data-role="list-divider" data-theme="a"></span><span class="coloumnHeaders">Select Option Below</span></li>
+          			 <li data-icon="grid"><a href="#viewAllRecipes" onclick="changeAppPage('viewAllRecipes')">View All Recipes</a></li>
+          		 	 <li data-icon="plus"><a href="#addRecipe" onclick="changeAppPage('addRecipes')">Add New Recipes</a></li>
+          		   </ul>          		   
               </div>
             </div>
             <!--Close Left Column 2 --> 
@@ -393,13 +366,7 @@ var $content = $("viewall").hide();
       <p>Compose</p>
       </a></section>
   </footer>
-
-
 </div>
-
-
-
-
 <!-- /close page --> 
 
 <!--PAGE 5 - PASSPORT -->
@@ -470,6 +437,119 @@ var $content = $("viewall").hide();
   </section>
 </div>
 
+<!--VIEW RECIPE PAGE -->
 
+<div data-role="page" id="viewAllRecipes">
+  <header role="banner" data-role="header" id="header" style="height:45px; z-index:1"> <a data-icon="back" data-role="button" data-rel="back" class="ui-btn-left backToAdmin">Back</a> </header>
+  
+  <!--Initial Home Screen Logo-->
+  <section data-role="content" class="constrain headerLogo" > </section>
+  
+  <!--Main Content in Center of Screen-->
+  <section data-role="content" class="sectionContent constrain"> 
+    
+    <!--960 Grid Root [responsive web design plugin]-->
+    <div class="container_16" data-theme="a">
+      <div class="grid_16">
+        <div class="gridMarginsLeft">
+          <ul id="viewProps" data-role="listview" data-inset="true" data-theme="a" data-icon="false" class="">
+            <li data-role="list-divider" data-theme="a"><span class="icon-data fontIcons"></span><span class="coloumnHeaders">View All Recipes</span></li>
+            <li data-role="list-divider" data-theme="a">
+              
+            <!--Data Table Goes HERE-->
+
+            <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+                <thead>
+                  <tr>
+                    <th width="500"></th>
+                    <th width="400"></th>
+                  </tr>
+                </thead>
+                <tbody >
+                
+
+                </tbody>
+            </table>
+				<article class="listAllRecipes">
+          	
+          		</article>
+                <script>
+					function initExpander() {
+					$(document).ready(function() {
+					  var opts = {collapseTimer: 4000};
+					  $.each(['beforeExpand', 'afterExpand', 'onCollapse'], function(i, callback) {
+						opts[callback] = function(byUser) {
+						  var msg = '<div class="success">' + callback;
+						  if (callback === 'onCollapse') {
+							msg += ' (' + (byUser ? 'user' : 'timer') + ')';
+						  }
+						  msg += '</div>';
+						  $(this).parent().parent().append(msg);
+						};
+					  });
+					  $('dl.expander dd').eq(0).expander();
+					  $('dl.expander dd').slice(1).expander(opts);
+					  $('ul.expander li').expander({
+						slicePoint: 50,
+						widow: 2,
+						expandSpeed: 0,
+						userCollapseText: '[^]'
+					  });
+					  $('.expand').expander();
+					});
+					}
+				</script>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- /close page -->
+
+<!--PAGE -->
+
+<div data-role="page" id="addRecipe">
+  <header role="banner" data-role="header" id="header" style="height:45px; z-index:1"> <a data-icon="back" data-role="button" data-rel="back" class="ui-btn-left backToAdmin">Back</a> </header>
+  
+  <!--Initial Home Screen Logo-->
+  <section data-role="content" class="constrain headerLogo" > </section>
+  
+  <!--Main Content in Center of Screen-->
+  <section data-role="content" class="sectionContent constrain"> 
+    
+    <!--960 Grid Root [responsive web design plugin]-->
+    <div class="container_16" data-theme="a">
+      <div class="grid_16">
+        <div class="gridMarginsLeft">
+          <ul id="viewProps" data-role="listview" data-inset="true" data-theme="a" data-icon="false" class="">
+            <li data-role="list-divider" data-theme="a"><span class="icon-paperplane fontIcons"></span><span class="coloumnHeaders">Add New Recipe</span></li>
+            <li data-role="list-divider" data-theme="a">
+<!--jQuery AJAX form uploader-->
+<!--http://abandon.ie/notebook/simple-file-uploads-using-jquery-ajax-->
+
+           <form id="createNewRecipe" method="post" enctype="multipart/form-data" data-ajax="false">
+		  Recipe Name: <input type="text" id="name" name="name" value="" placeholder="enter recipe name" required/><br>
+          Recipe Type: <input type="text" id="type" name="type" value="breakfast / lunch / dinner / supper" placeholder="enter a postcode" required/><br>
+      Recipe Description: <br><textarea style="height:100px;" id="description" name="description" placeholder="Enter your text here..." required></textarea> <br />
+      
+      <hr>
+      <hr>
+		  File upload: 
+ 
+		  <input name="attachment" type="file" id="attachment" /><br>
+		  <button type="submit" value="Send" name="submit">Create New Recipe</button>
+		 </form>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- /close page --> 
 </body>
 </html>

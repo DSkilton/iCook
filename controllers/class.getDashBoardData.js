@@ -1,92 +1,78 @@
-//$(document).ready(function() {
+$(document).ready(function() {
+
+GetAllRecipes();	
+
+function GetAllRecipes()
+{
+
+$('.listAllRecipes').empty();
+
+$.mobile.loading('show', {text: 'Loading Your Recipes',textVisible: true,theme: 'a'});
+
+//Web service call to get the data
+
+var getAllrecipeData = $.get("http://localhost/models/class.model.getData.php?action=getAllRecipes",
+
+//data.recipeData
+
+	function(data) 
+
+	{ 
+
+	var j = 0;
 	
-getTrip();
+	var myTotal = data.rec.length ;
 	
-//$('#trip').append("test");
-//get a simple list of trips
-function getTrip(){
+	for(var i =0; i < data.rec.length;i++)
 	
-	//$('table#trip').append("test");
-	$('table#trip').empty();
-	$('table#sectors').empty();
+	{ 
 	
-$.get("https://u0018370.scm.tees.ac.uk/MAD_complete/models/class.model.getDashBoardData.php?action=getTrip",
-function(data) {
-//table row
-var tr;
+		var recipe_id = data.rec[i].recipe_id;
+		
+		var recipe_name = data.rec[i].recipe_name;
+		
+		var recipe_description = data.rec[i].recipe_description;
+		
+		var recipe_type = data.rec[i].recipe_type;
+		
+		var img_full = data.rec[i].img_full;
+		
+		//determines how the  rows are postioned in the table
+		var recipeDetails = '<div style="width:100%; float:left;"><img style="float:left;" src="'+img_full+'" width="300px"><div style="float:left; margin:0 0 0 20px;" class ="expand"><ul><li class="recipeTitle">Name: '+recipe_name+'</h2></li><li>Instructions: '+recipe_description+'</li><li>Type: '+recipe_type+'</li></ul></div></div>';
+		
+		
+		$('.listAllRecipes').append(''+recipeDetails+'');
+		
+		//$('.images_'+j).append('test image' ); not needed
+		
+		j = j +1; $.mobile.loading('hide');
+	
+	}//close loop
+
+}, "json"); 
 
 
-for (var i = 0; i < data.tripData.length; i++) {
-tr = $('');
+getAllrecipeData.done(function() 
 
-tr = "<td>" + data.tripData[i] + "</td>";
+{ $.mobile.loading('hide');
 
-$('table#trip').append(tr);
+initExpander();
 
-//$('table#trip').append("test");
+console.log("Yeeee we got the data" );
 
-//alert(data.tripData[i]);
-}
+})
 
-//Refresh JQM
-$( "div#home[data-role=page]" ).trigger("create");
+getAllrecipeData.fail(function() 
 
-}, "json");
+{ $.mobile.loading('hide');
 
-getTripSectors();
-return false;
+alert('something failed!')
+
+}) 
+
 };//Close Function
 
 
 
-//get a list of all sectors for this trip
-function getTripSectors(){
 
-//Remove any exosting data
-//$('table').empty();
-
-	
-
-$.get("https://u0018370.scm.tees.ac.uk/MAD_complete/models/class.model.getDashBoardData.php?action=getTripSectors",
-
-function(data) {
-
-
-var k = 0;
-var tr;
-
-
-for (var i = 0; i < data.sectorsData.length; i++) {
-
-if(i ==1){
-tr = $('');
-tr.append(""+ data.sectorsData[i] + "");
-//$('table#sectors').append(tr);
-$('table#sectors').append("<td class='tr_bg2'>" + data.sectorsData[i] + "</td>");
-k=0;
-}
-
-else{
-
-tr = $('');
-tr.append(""+ data.sectorsData[i] + "");
-//$('table#sectors').append(tr);
-$('table#sectors').append("<td class='tr_bg'>" + data.sectorsData[i] + "</td>");
-k=1;
-}
-
-}
-
-//Refresh JQM
-$( "div#home[data-role=page]" ).trigger("create");
-
-}, "json");
-
-
-
-
-return false;
-
-
-};//Close Function*/
-//});
+});

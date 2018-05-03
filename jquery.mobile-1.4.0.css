@@ -739,6 +739,7 @@ button,
 	line-height: 1.3;
 	font-family: sans-serif /*{global-font-family}*/;
 }
+
 legend,
 .ui-input-text input,
 .ui-input-search input {
@@ -789,6 +790,7 @@ label.ui-btn {
 	font-weight: bold;
 	border-width: 1px;
 	border-style: solid;
+
 }
 .ui-btn:link {
 	text-decoration: none !important;
@@ -4123,6 +4125,7 @@ div.ui-rangeslider label {
 }
 .ui-input-text,
 .ui-input-search {
+	
 	margin: .5em 0;
 	border-width: 1px;
 	border-style: solid;
@@ -4143,6 +4146,7 @@ textarea.ui-input-text {
 .ui-input-text input,
 .ui-input-search input {
 	margin: 0;
+	width: 200px;
 	min-height: 2.2em;
 	text-align: left; /* Opera aligns type="date" right by default */
 	border: 0;
@@ -4242,6 +4246,7 @@ for Android 4.1 */
 	-moz-box-shadow: none;
 	box-shadow: none;
 }
+
 .ui-textinput-autogrow-resize {
 	-webkit-transition: height 0.25s;
 	-o-transition: height 0.25s;
@@ -4551,6 +4556,7 @@ for Android 4.1 */
 }
 .ui-panel-inner {
 	padding: 1em;
+	background-color: beige;
 }
 /* Container, page and wrapper */
 .ui-panel-page-container {
@@ -4631,6 +4637,7 @@ for Android 4.1 */
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 	-moz-transform: none;
+	background-color: aqua;
 }
 /* Panel right closed */
 .ui-panel-position-right {

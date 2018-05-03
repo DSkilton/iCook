@@ -8,7 +8,7 @@ error_reporting(E_ERROR);
 
 function DBConnect(){
 //add further global vars at the end of the line below once you have created them in the database admin tool
-global $Host, $User, $DBPassword, $DBName, $table_1 ;
+global $Host, $User, $DBPassword, $DBName, $table_1, $table_2, $table_3 ;
 
 $Host = "localhost";
 $User = "root";
@@ -17,7 +17,8 @@ $DBName = "M1610718_iCook";
 //add links to your new tables here as well
 
 $table_1 = "users";
-$table_2 = "recipes";
+$table_2 = "recipe";
+$table_3 = "recipe_images";
 
 
 //IMPORTANT!Comment out this block when connection is successful!
@@ -26,6 +27,8 @@ $table_2 = "recipes";
 	}else{
 	print "MySQL Connection Error! Please Check Details In class.model.common.php!";
 	} */
+
+
 
 }//close function
 

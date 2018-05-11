@@ -4146,7 +4146,6 @@ textarea.ui-input-text {
 .ui-input-text input,
 .ui-input-search input {
 	margin: 0;
-	width: 200px;
 	min-height: 2.2em;
 	text-align: left; /* Opera aligns type="date" right by default */
 	border: 0;

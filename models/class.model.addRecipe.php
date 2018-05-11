@@ -69,7 +69,7 @@ function addRecipe($Host, $User, $DBPassword, $DBName, $table_1, $table_2, $tabl
 
 			$message = "You Have Successfully Created The recipe!";	 
 			//Send Back to the Controller
-			echo json_encode(array('action'=>'success','html'=>$message, 'console.log'=>$Query));
+			//echo json_encode(array('action'=>'success','html'=>$message, 'console.log'=>$Query));
 			}
 	}//close insert query conditional 
 

@@ -17,21 +17,14 @@ include "class.model.common.php"; // includes common functionality such as DBCon
  
 DBConnect();
   
-  
 error_reporting(E_ERROR);
  
- 
 $action = $_GET['action'];
- 
     if($action=="register"){
- 
-        registerUser($Host, $User, $DBPassword, $DBName, $table_1); 
-         
+        registerUser($Host, $User, $DBPassword, $DBName, $table_1);        
     }
  
- 
 function registerUser($Host, $User, $DBPassword, $DBName, $table_1){
- 
     $Link = mysql_connect($Host, $User, $DBPassword);
  
     //COLLECT POST data

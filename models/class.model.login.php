@@ -76,7 +76,7 @@ function login($Host, $User, $DBPassword, $DBName, $table_1){
 		$emailad = $Row['email'];	
 			
 			//create a session for to secure our models (will use this in the next tutorial).
-			$_SESSION['User_ID'] = $User_ID ;
+			$_SESSION['User_ID'] = $User_ID;
 							
 			//Free memory and close connection to DB
 			mysqli_free_result($Result);

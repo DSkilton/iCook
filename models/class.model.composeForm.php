@@ -25,16 +25,10 @@ DBConnect();
 $action = $_GET['action'];
 
 if($action=="save"){
-
-
-
-composeForm($Host, $User, $Password, $DBName, $table_2);	
-
+	composeForm($Host, $User, $Password, $DBName, $table_2);	
 }
 
-
 function composeForm($Host, $User, $Password, $DBName, $table_2){
-
 $Link = mysqli_connect($Host, $User, $Password, $DBName);
 
 //COLLECT POST data
@@ -55,7 +49,6 @@ $Query = "INSERT INTO $table_2 VALUES ('0', '1' ,'".$formValue['tripTitle']."', 
 						
 
 if(mysqli_query($Link, $Query)){	
-
 echo json_encode(array('action'=>'save','html'=>$message, 'console.log'=>$testOutput));
 
 

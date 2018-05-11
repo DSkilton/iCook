@@ -2,16 +2,16 @@ $(document).ready(function() {
 
 GetAllRecipes();	
 
-function GetAllRecipes()
+function GetMyRecipes()
 {
 
-$('.listAllRecipes').empty();
+$('.listMyRecipes').empty();
 
 $.mobile.loading('show', {text: 'Loading Your Recipes',textVisible: true,theme: 'a'});
 
 //Web service call to get the data
 
-var getAllrecipeData = $.get("http://M1610718.spaces.middlesbro.ac.uk/CST_1718/webApp/models/class.model.getData.php?action=getAllRecipes"),
+var getAllrecipeData = $.get("http://localhost/models/class.model.getMyRecipes.php?action=getMyRecipes",
 
 //data.recipeData
 
@@ -25,8 +25,7 @@ var getAllrecipeData = $.get("http://M1610718.spaces.middlesbro.ac.uk/CST_1718/w
 	
 	for(var i =0; i < data.rec.length;i++)
 	
-	{ 
-	
+	{
 		var recipe_id = data.rec[i].recipe_id;
 		
 		var recipe_name = data.rec[i].recipe_name;
@@ -41,7 +40,7 @@ var getAllrecipeData = $.get("http://M1610718.spaces.middlesbro.ac.uk/CST_1718/w
 		var recipeDetails = '<div style="width:100%; float:left;"><img style="float:left;" src="'+img_full+'" width="300px"><div style="float:left; margin:0 0 0 20px;" class ="expand"><ul><li class="recipeTitle">Name: '+recipe_name+'</h2></li><li>Instructions: '+recipe_description+'</li><li>Type: '+recipe_type+'</li></ul></div></div>';
 		
 		
-		$('.listAllRecipes').append(''+recipeDetails+'');
+		$('.listMyRecipes').append(''+recipeDetails+'');
 		
 		//$('.images_'+j).append('test image' ); not needed
 		
@@ -52,7 +51,7 @@ var getAllrecipeData = $.get("http://M1610718.spaces.middlesbro.ac.uk/CST_1718/w
 }, "json"); 
 
 
-getAllrecipeData.done(function() 
+getMyrecipeData.done(function() 
 
 { $.mobile.loading('hide');
 
@@ -62,7 +61,7 @@ console.log("Yeeee we got the data" );
 
 })
 
-getAllrecipeData.fail(function() 
+getMyrecipeData.fail(function() 
 
 { $.mobile.loading('hide');
 

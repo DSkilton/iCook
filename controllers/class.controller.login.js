@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 console.log('controller linked');
 
@@ -17,7 +16,7 @@ $('form#loginForm').submit(function(){
 		
 		//Always external URL in an App
 		//Remember to change this URL to your OWN path!
-		url: 'http://localhost/models/class.model.login.php?action=login',
+		url: 'http://M1610718.spaces.middlesbro.ac.uk/CST_1718/webApp/models/class.model.login.php?action=login',
 				
 		success: function(data){
 			

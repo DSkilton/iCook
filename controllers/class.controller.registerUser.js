@@ -16,7 +16,7 @@ $(document).ready(function() {
 			  data: postData,
 			  
 		//Always external URL in an App
-		url: 'http://localhost/models/class.model.registerUser.php?action=register',
+		url: 'http://M1610718.spaces.middlesbro.ac.uk/CST_1718/webApp/models/class.model.registerUser.php?action=register',
 			  
 			  success: function(data){
 	  

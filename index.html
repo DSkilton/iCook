@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -19,7 +19,7 @@
     </style>
 <![endif]-->
 
-<title>iCook - Welcome</title>
+<title>iCook</title>
 
 <!-- JQM Themeroller Stylesheet 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />-->
@@ -40,6 +40,7 @@
 <script src="controllers/class.controller.login.js"></script>
 <script src="controllers/class.getDashBoardData.js"></script>
 <script src="controllers/class.getrecipeOfTheDay.js"></script>
+
 
 <!--<script src="controllers/class.getDashBoardData.js"></script>-->
 <script src="controllers/class.controller.logout.js"></script>
@@ -68,8 +69,6 @@ var $content = $("#about-app").hide();
 </head>
 
 <body>
-
-<!-- login & registration page -->
 <div data-role="page" id="home" class="type-register">
 
 <!--put formContainer here-->
@@ -126,10 +125,10 @@ var $content = $("#about-app").hide();
       </div>
 
     </div><!--Close formContainer-->
-</div>
-<!-- /close page -->
+</div><!-- /close page -->
 
 <!--PAGE 2 - DASHBOARD -->
+
 <div data-role="page" id="dashboard" data-transition="slide"> 
   
   <!--Account Control Panel --> 
@@ -157,115 +156,29 @@ var $content = $("#about-app").hide();
       
       <!--960 Grid Root [responsive web design plugin]-->
       <div class="container_16" data-theme="a">
-		  
-	    <!-- individual sections --> 
-        <div class="grid_8" data-theme="a">
-          <div class="gridMarginsLeft"> 
-            <!--Close Left Column 1 --> 
-			  
-            <div data-role="listview" data-inset="true" data-theme="a" data-icon="false" data-filter-placeholder="Search..." class="jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
-              <div class="light-grey">
-                <div class="header">
-                  <h2>Recipe of the Day</h2>
-                </div>
-			  	  <div class="recipeOfTheDayPadding">
-                <article class="listAllRecipes">
-          	
-          		</article>
-                <div class="trip-add">
-                  <div class="wrap">
-					   <div class="search">
-				<script>
-					function initExpander() {
-					$(document).ready(function() {
-					  var opts = {collapseTimer: 4000};
-					  $.each(['beforeExpand', 'afterExpand', 'onCollapse'], function(i, callback) {
-						opts[callback] = function(byUser) {
-						  var msg = '<div class="success">' + callback;
-						  if (callback === 'onCollapse') {
-							msg += ' (' + (byUser ? 'user' : 'timer') + ')';
-						  }
-						  msg += '</div>';
-						  $(this).parent().parent().append(msg);
-						};
-					  });
-					  $('dl.expander dd').eq(0).expander();
-					  $('dl.expander dd').slice(1).expander(opts);
-					  $('ul.expander li').expander({
-						slicePoint: 50,
-						widow: 2,
-						expandSpeed: 0,
-						userCollapseText: '[^]'
-					  });
-					  $('.expand').expander();
-					});
-					}
-				</script>
-						   </div>
-					   </div>
-					</div>
-                </div>
-              </div>
-            </div>
-            <!--Close Left Column 2 --> 
-          </div>
-          <!--Close grid_8--> 
-        </div>
-        <!--Close container_16--> 
-        
-        <!--Right Column Group 1-->
-        <div class="grid_8" data-theme="a">
-          <div class="gridMarginsRight"> 
-            <!--Right Column Group 1-->
-            <div data-role="listview" data-inset="true" data-theme="a" data-icon="star" class="mylist jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
-              <div id="logo">  <img class="icon" width="30" src="images/list-white.png"> </div>
-              <div class="light-grey">
-                <div class="header">
-                  <h2>Popular Recipes</h2>
-                </div>
-                <table data-role="table" id="trip" style="background:#bdc3c7; text-shadow:none; color:black;">
-                </table>
-                <div class="toggle"> <span class="image"></span><span class="text">Edit Note</span></div>
-                <div id="sector-form">
-                  <form id="deleteForm">
-                    <select name="trip" id="trip" onchange="report(this.value)">
-                    </select>
-                    <label for="tripTitle" class="ui-input-text"></label>
-                    <div class="field">
-                      <input name="tripTitle" id="tripTitle" type="text" placeholder="Trip Title">
-                    </div>
-                    Coming Soon <span class="msg"></span>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <!--Close Right Column 1 --> 
-          </div>
-        </div>
-        <!--Close grid_8--> 
-        
-        <!--Spare Group--> 
-        
-      </div>
-      <!--Close container_16-->
-      
-      <div class="container_16" data-theme="a">
         <div class="grid_8" data-theme="a">
           <div class="gridMarginsLeft"> 
             <!--Close Left Column 1 --> 
             
             <!--Left Column Group 2-->
             <div data-role="listview" data-inset="true" data-theme="a" data-icon="false" data-filter-placeholder="Search..." class="jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
-              <div id="logo">  <img class="icon" width="30" src="images/Recipes.png"> </div>
+              	<div id="logo">  <img class="icon" width="30" src="images/favourites1.png"> </div>
               <div class="light-grey">
                 <div class="header">
-                  <h2>My Recipes</h2>
-                </div>                
-				   <ul data-role="listview" data-inset="true" data-theme="a" class="">
-         			 <li data-role="list-divider" data-theme="a"></span><span class="coloumnHeaders">Select Option Below</span></li>
-          			 <li data-icon="grid"><a href="#viewAllRecipes" onclick="changeAppPage('viewAllRecipes')">View All Recipes</a></li>
-          		 	 <li data-icon="plus"><a href="#addRecipe" onclick="changeAppPage('addRecipes')">Add New Recipes</a></li>
-          		   </ul>          		   
+                  <h2>Recipe of the Day</h2>
+                </div>
+                <table data-role="table" id="sectors">
+                </table>
+                <div class="trip-add">
+                  <div class="wrap">
+                <article class="recipeoftheday">
+				
+				</article>
+					  <div class="recipeOfTheDayPadding">
+          		
+          		</div>
+					</div>
+                </div>
               </div>
             </div>
             <!--Close Left Column 2 --> 
@@ -294,10 +207,39 @@ var $content = $("#about-app").hide();
             <!--Close Right Column 1 --> 
           </div>
         </div>
+
         <!--Close grid_8--> 
         
         <!--Spare Group--> 
         
+      </div>
+      <!--Close container_16-->
+      
+      <div class="container_16" data-theme="a">
+        <div class="grid_8" data-theme="a">
+          <div class="gridMarginsLeft"> 
+            <!--Close Left Column 1 --> 
+            
+            <!--Left Column Group 2-->
+            <div data-role="listview" data-inset="true" data-theme="a" data-icon="false" data-filter-placeholder="Search..." class="jqm-list jqm-home-list ui-listview ui-listview-inset ui-corner-all ui-shadow">
+              <div id="logo">  <img class="icon" width="30" src="images/Recipes.png"> </div>
+              <div class="light-grey">
+                <div class="header">
+                  <h2>My Recipes</h2>
+                </div>                
+				   <ul data-role="listview" data-inset="true" data-theme="a" class="">
+         			 <li data-role="list-divider" data-theme="a"></span><span class="coloumnHeaders">Select Option Below</span></li>
+          			 <li data-icon="grid"><a href="#viewAllRecipes" onclick="changeAppPage('viewAllRecipes')">View All Recipes</a></li>
+          		 	 <li data-icon="plus"><a href="#addRecipe" onclick="changeAppPage('addRecipe')">Add New Recipes</a></li>
+          		   </ul>          		   
+              </div>
+            </div>
+            <!--Close Left Column 2 --> 
+          </div>
+          <!--Close grid_8--> 
+        </div>
+        <!--Close container_16--> 
+         
       </div>
       <!--Close container_16--> 
       
@@ -305,18 +247,18 @@ var $content = $("#about-app").hide();
     <!--Close Section-->
     
     <footer data-tap-toggle="false" data-role="footer" data-position="fixed" class="footer" data-theme="a">
-      <section class="footer-link" id="logout"><a class="red" href="#home"><img width="30" align="middle" src="images/logout.png" alt="logout button">
+      <section class="footer-link" id="logout"><a class="red" href="#home"><img width="30" align="middle" src="images/logout.png">
         <p>Logout</p>
         </a></section>
-      <section class="footer-link" id="dash"><a class="red" href="#dashboard"><img width="30" src="images/dash.png" alt="home number">
+      <section class="footer-link" id="dash"><a class="red" href="#dashboard"><img width="30" src="images/dash.png">
         <p>Dashboard
         
         <p> 
         </a></section>
-      <section class="footer-link geoLocation_btn" id="items"><a  href="#map-page"><img width="30" src="images/list.png" alt="map button">
+      <section class="footer-link geoLocation_btn" id="items"><a  href="#map-page"><img width="30" src="images/list.png">
         <p>Current Location</p>
         </a></section>
-      <section class="footer-link" id="compose"><a class="red" href="#addnote"><img width="30" src="images/compose.png" alt="search button">
+      <section class="footer-link" id="compose"><a class="red" href="#addnote"><img width="30" src="images/compose.png">
         <p>Compose</p>
         </a></section>
     </footer>
@@ -325,21 +267,22 @@ var $content = $("#about-app").hide();
 <!-- /close page --> 
 
 <!--PAGE 3 - ADDNOTE -->
+
 <div data-role="page" id="addnote">
   <div id="formContainer">
     <div id="logo">  <img class="icon" width="30" src="images/compose-white.png"> </div>
     <div id="formContent">
       <div class="header">
-        <h2>Compose Note</h2>
+        <h2>Shopping List</h2>
       </div>
       <form id='composeForm'>
         <div class="field titlefield">
-          <input name="tripTitle" id="tripTitle" type="text" placeholder="Project Title" />
+          <p>Write your items below</p>
         </div>
         <div id="message" class="field">
           <div>
             <textarea style="
-    height: 100%;" name="tripDesc" id="tripDesc" type="text" placeholder="Enter you task/message/note" />
+    height: 100%;" name="tripDesc" id="tripDesc" type="text" placeholder="Enter you list items" />
             </textarea>
           </div>
         </div>
@@ -370,9 +313,7 @@ var $content = $("#about-app").hide();
 </div>
 
 <!--PAGE 4 - map-page -->
-<div data-role="page" id="map-page" data-add-back-btn="true"> 
-  
-  
+<div data-role="page" id="map-page" data-add-back-btn="true">  
   <div id="map" data-role="content"> </div>
   <footer data-tap-toggle="false" data-role="footer" data-position="fixed" class="footer" data-theme="a">
     <section class="footer-link" id="logout"><a class="red" href="#addnote"><img width="30" align="middle" src="images/logout.png">
@@ -393,6 +334,55 @@ var $content = $("#about-app").hide();
 </div>
 <!-- /close page --> 
 
+<!--PAGE 5 - PASSPORT -->
+<div data-role="page" id="passport">
+  <section data-role="content" class="constrain contentBG"> 
+    
+    <!--960 Grid Root [responsive web design plugin]-->
+    <div class="container_16" data-theme="a">
+      <div class="grid_8" data-theme="a">
+        <div class="gridMarginsLeft">
+          <div class="light-grey">
+            <div class="header">
+              <h2 class="ui-li-heading">Passport Form</h2>
+            </div>
+            <form class="bob" id='passportform'>
+              <label for="firstN"></label>
+              <div class="field">
+                <input name="firstN" id="firstN" type="text" placeholder="Full Name" />
+              </div>
+              <label for="lastN"></label>
+              <div class="field">
+                <input name="passnum" id="passnum" type="text" placeholder="Passport Number" />
+              </div>
+              <label for="passnum"></label>
+              <div class="field">
+                <input name="bog" id="bod" type="text" placeholder="Date of birth" />
+              </div>
+              <label for="dob"></label>
+              <div class="field">
+                <input name="exdate" id="exdate" type="text" placeholder="Exspiry Date" />
+              </div>
+              <div class="upload">
+                <label for="userFile">Upload your boarding pass (not passport): </label>
+                <input type="file" size="40" name="userFile" id="userFile">
+                <button>Save Details</button>
+                <span></span> </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="grid_8" data-theme="a">
+        <div class="gridMarginsLeft">
+          <div class="light-grey">
+            <div class="header">
+              <h2 class="ui-li-heading">Passport Details/Boarding Pass</h2>
+            </div>
+            <div class="placeholder" > <img src="images/5.png"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer data-tap-toggle="false" data-role="footer" data-position="fixed" class="footer" data-theme="a">
       <section class="footer-link" id="logout"><a class="red" href="#home"><img width="30" align="middle" src="images/logout.png">
         <p>Logout</p>
@@ -580,8 +570,7 @@ var $content = $("#about-app").hide();
            <form id="createNewRecipe" method="post" enctype="multipart/form-data" data-ajax="false">
 		  Recipe Name: <input type="text" id="name" name="name" value="" placeholder="enter recipe name" required/><br>
           Recipe Type: <input type="text" id="type" name="type" value="breakfast / lunch / dinner / supper" placeholder="Pick one" required/><br>
-      Recipe Description: <br><textarea style="height:100px;" id="description" name="description" placeholder="Enter your text here..." required></textarea> <br />
-      
+			Recipe Description: <br><textarea style="height:100px;" id="description" name="description" placeholder="Enter your text here..." required></textarea> <br />
       <hr>
       <hr>
 		  File upload: 

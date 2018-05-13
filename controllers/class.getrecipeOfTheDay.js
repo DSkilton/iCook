@@ -10,7 +10,7 @@ function GetRecipeOfDay()
 		$.mobile.loading('show', {text: 'Loading Your Recipes',textVisible: true,theme: 'a'});
 
 		//Web service call to get the data
-		var getRecipeOfTheDay = $.get("http://localhost/models/recipeOfTheDay.php?action=getRecipeOfDay",
+		var getRecipeOfTheDay = $.get("http://M1610718.spaces.middlesbro.ac.uk/CST_1718/webApp/models/recipeOfTheDay.php?action=getRecipeOfDay",
 
 		//data.recipeData
 		function(data) 
@@ -34,10 +34,10 @@ function GetRecipeOfDay()
 				//determines how the  rows are postioned in the table
 				var recipeDetails =  formateRecipe(recipe_id, img_full, recipe_name, recipe_description, recipe_type) + '<div style="clear:both;"></div>';
 				
-				
-				$('.listRecipesOfDay').append(''+recipeDetails+'');
+				$('.listRecipeOfDay').append(''+recipeDetails+'');
 				
 				//$('.images_'+j).append('test image' ); not needed
 				j = j +1; $.mobile.loading('hide');
 			
 			}//close loop
+)]; 

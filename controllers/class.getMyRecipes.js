@@ -11,7 +11,7 @@ $.mobile.loading('show', {text: 'Loading Your Recipes',textVisible: true,theme: 
 
 //Web service call to get the data
 
-var getAllrecipeData = $.get("http://localhost/models/class.model.getMyRecipes.php?action=getMyRecipes",
+var getAllrecipeData = $.get("http://M1610718.spaces.middlesbro.ac.uk/CST_1718/webApp/models/class.model.getMyRecipes.php?action=getMyRecipes",
 
 //data.recipeData
 

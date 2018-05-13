@@ -14,6 +14,8 @@ function prepareUpload(event)
   files = event.target.files;
 }
 
+
+
 $('#createNewRecipe').on('submit', uploadFiles);
 
 // Catch the form submit and upload the files
@@ -35,7 +37,7 @@ console.log("got inside upload files");
 
    console.log("got inside uploadFiles function");
     $.ajax({
-        url: 'http://M1610718.spaces.middlesbro.ac.uk/httpdocs/cst_1718/webapp/models/class.model.addRecipe.php?files',
+        url: 'models/class.model.addRecipe.php?files',
         type: 'POST',
         data: data,
         cache: false,

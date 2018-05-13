@@ -8,15 +8,14 @@ function GetAllRecipes()
 $('.listAllRecipes').empty();
 
 $.mobile.loading('show', {text: 'Loading Your Recipes',textVisible: true,theme: 'a'});
-
+console.log("getting recipes" );
 //Web service call to get the data
 
-var getAllrecipeData = $.get("http://M1610718.spaces.middlesbro.ac.uk/CST_1718/webApp/models/class.model.getData.php?action=getAllRecipes"),
+var getAllrecipeData = $.get("http://M1610718.spaces.middlesbro.ac.uk/CST_1718/webApp/models/class.model.getData.php?action=getAllRecipes",
 
 //data.recipeData
 
-	function(data) 
-
+	function(data)
 	{ 
 
 	var j = 0;
@@ -46,7 +45,6 @@ var getAllrecipeData = $.get("http://M1610718.spaces.middlesbro.ac.uk/CST_1718/w
 		//$('.images_'+j).append('test image' ); not needed
 		
 		j = j +1; $.mobile.loading('hide');
-	
 	}//close loop
 
 }, "json"); 
@@ -71,7 +69,6 @@ alert('something failed!')
 }) 
 
 };//Close Function
-
 
 
 

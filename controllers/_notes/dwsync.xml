@@ -10,4 +10,13 @@
 <file name="class.controller.registerUser.js" server="u0018370.scm.tees.ac.uk//web/users/u0018370/MAD_complete/" local="130366037835089725" remote="130366037950000000" Dst="1" />
 <file name="class.controller.login.js" server="u0018370.scm.tees.ac.uk//web/users/u0018370/MAD_complete/" local="130366037890029725" remote="130366037890000000" Dst="1" />
 <file name="class.controller.logout.js" server="u0018370.scm.tees.ac.uk//web/users/u0018370/MAD_complete/" local="130366037834899725" remote="130366037950000000" Dst="1" />
+<file name="class.controller.addrecipe.js" server="C:/xampp/htdocs/models/" local="131707134647340984" remote="131707134640000000" Dst="2" />
+<file name="class.controller.login.js" server="C:/xampp/htdocs/models/" local="131707134647724013" remote="131707134640000000" Dst="2" />
+<file name="class.controller.logout.js" server="C:/xampp/htdocs/models/" local="131707134648103486" remote="131707134640000000" Dst="2" />
+<file name="class.controller.registerUser.js" server="C:/xampp/htdocs/models/" local="131707134648454452" remote="131707134640000000" Dst="2" />
+<file name="class.getDashBoardData.js" server="C:/xampp/htdocs/models/" local="131707134648999920" remote="131707134640000000" Dst="2" />
+<file name="class.getMyRecipes.js" server="C:/xampp/htdocs/models/" local="131707134649569282" remote="131707134640000000" Dst="2" />
+<file name="class.getrecipeOfTheDay.js" server="C:/xampp/htdocs/models/" local="131707134650044294" remote="131707134650000000" Dst="2" />
+<file name="class.jquery.passstrength.js" server="C:/xampp/htdocs/models/" local="131707134650744171" remote="131707134650000000" Dst="2" />
+<file name="class.Placeholders.min.js" server="C:/xampp/htdocs/models/" local="131707134651490600" remote="131707134650000000" Dst="2" />
 </dwsync>
